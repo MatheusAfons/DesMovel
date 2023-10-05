@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // Estilos do TextInput
 const StyledTextInput = styled.div`
+  background-color: white;
   margin: 5%;
   display: flex;
   align-items: center;
@@ -24,7 +25,7 @@ const InputField = styled.input`
   margin: 0;
 `;
 
-const TextInput = ({ startIcon, endIcon, ...restProps }) => {
+export const TextInput = ({ startIcon, endIcon, ...restProps }) => {
   return (
     <StyledTextInput>
       {startIcon && <Icon>{startIcon}</Icon>}
@@ -33,5 +34,3 @@ const TextInput = ({ startIcon, endIcon, ...restProps }) => {
     </StyledTextInput>
   );
 };
-
-export default TextInput;

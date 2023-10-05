@@ -1,57 +1,52 @@
 import React from 'react';
+import { Button, View, Text } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; // Exemplo de ícones do FontAwesome
+import {
+  faUser,
+  faLock,
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-solid-svg-icons'; // Exemplo de ícones do FontAwesome
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import TextInput from './assets/TextInput';
+import { TextInput } from './assets/TextInput.js';
 
+function TelaEditar({ navigation }) {
+  return <View>
+  <Text></Text>
+  </View>;
+}
 
+function TelaVisualizar({ navigation }) {
+  return <View></View>;
+}
 
-function Screen3({ navigation }) {
+function TelaInserir({ navigation }) {
   return (
     <div>
-      tela3
+      <TextInput placeholder="Nome" />
+      <TextInput placeholder="Descrição" />
+      <Button title="Adicionar" />
     </div>
   );
 }
 
-function Screen2({ navigation }) {
-  return (
-    <div>
-      tela2
-    </div>
-  );
-}
-
-function LoginScreen ({ navigation }) {
-  return (
-    <div>
-          <TextInput
-      startIcon={<FontAwesomeIcon icon={faUser} />}
-        placeholder="Nome de Usuário"
-      />
-      <TextInput
-      startIcon={<FontAwesomeIcon icon={faLock} />}
-        endIcon={<FontAwesomeIcon icon={faEyeSlash} />}
-        type="password"
-        placeholder="Senha"
-      />
-    </div>
-    
-  );
-}
-
-const Drawer = createDrawerNavigator()
+const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
-        <Drawer.Screen name="Login" component={LoginScreen} />
-        <Drawer.Screen name="Screen2" component={Screen2} />
-        <Drawer.Screen name="Screen3" component={Screen3} />
+      <Drawer.Navigator
+        useLegacyImplementation
+        initialRouteName="Inserir Informação">
+        <Drawer.Screen name="Inserir Informação" component={TelaInserir} />
+        <Drawer.Screen
+          name="Visualizar Informações"
+          component={TelaVisualizar}
+        />
+        <Drawer.Screen name="Editar Informações" component={TelaEditar} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
